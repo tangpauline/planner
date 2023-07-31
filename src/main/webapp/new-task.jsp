@@ -15,7 +15,7 @@
     <link rel="stylesheet"
      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style><%@include file="form.css"%></style>
+    <style><%@include file="style/form.css"%></style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,8 +42,6 @@
                         <form action="add" method="post">
                         <h2>Add Task</h2>
                     </c:if>
-
-
 
                     <!-- Edit form: obtain Id of existing task -->
                     <c:if test="${task != null}">
@@ -72,10 +70,10 @@
                     <fieldset class="form-group">
                         <label>Status</label>
                             <select class="form-control" name="status">
-                                <option value="assigned">created</option>
+                                <option value="created">created</option>
                                 <option value="in progress">in progress</option>
-                                <option value="completed">complete</option>
-                                <option value="completed">cancelled</option>
+                                <option value="completed">completed</option>
+                                <option value="cancelled">cancelled</option>
                             </select>
                     </fieldset>
 

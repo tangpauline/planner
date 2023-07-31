@@ -17,3 +17,19 @@ As a big planner myself, I’ve gone through a variety of task management servic
 - IntelliJ IDEA (+ Smart Tomcat plugin)
 
 This is a full-stack web project created using the Maven webapp archetype and programmed using Java. This project implements CRUD (create, read, update, delete) operations to allow users to interact with their tasks. The JSP pages are styled with CSS with the help of Bootstrap 4.3.1.. The Jakarta Servlet API is used to handle HTTP requests/responses to and from the server. Information about the tasks are stored in a MySQL database containing 7 tables (one for each day of the week) and communicates with the Java code using JDBC to form a connection and execute appropriate queries in the DAO layer. To run the web application, configure and start a Tomcat server and access it with: [http://localhost:8080/weekly-tasks/](http://localhost:8080/weekly-tasks/show) (here the context path is ‘weekly-tasks’).
+
+### Demo screenshots:
+Home:
+![Alt text](images/home_img.png?raw=true "Home")
+
+Add Task:
+![Alt text](images/add_img.png?raw=true "Add")
+
+Show all tasks:
+![Alt text](images/show_all_img.png?raw=true "Show all")
+
+Show tasks in current week:
+![Alt text](images/show_week_img.png?raw=true "Show week")
+
+Edit task:
+![Alt text](images/edit_task_img.png?raw=true "Edit")

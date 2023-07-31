@@ -75,6 +75,9 @@ public class TaskController extends HttpServlet {
                 case "/show-week":
                     showWeek(request, response);
                     break;
+                case "/delete":
+                    deleteTask(request, response);
+                    break;
                 default:
 //                    System.out.println("defaulted in get");
                     showAll(request, response);
