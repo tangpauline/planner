@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+	min-height: 100vh;
+	background:#F8F6F4;
+    background-size:cover;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Home icon. */
+nav {
+    width: 100%;
+}
+
+.home {
+    width: 100%;
+    display: flex;
+    justify-content:end;
+    align-items: flex-end;
+}
+
+.home a {
+    text-decoration: none;
+    font-size: 30px;
+    padding-right: 10px;
+    color: #83bbbb;
+}
+
+/* Rest of content below home icon. */
+.view {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Title of the page */
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Bakbak One', cursive;
+    font-size: 50px;
+    color: #387b8b;
+    margin: 0;
+}
+
+/* "Show" button options */
+.top-buttons {
+    display: flex;
+}
+
+/* Button to display tasks for the current week only. */
+.show-current-week {
+    display: flex;
+    margin: 10px;
+    border: 5px solid #b8bee4;
+    border-radius: 10px;
+    padding: 3px 5px;
+    align-items: center;
+    justify-content: center;
+    background: #d1d4e2;
+    width: 120px;
+}
+
+.show-current-week a {
+    text-decoration: none;
+    color: #687fb1;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.show-current-week:hover {
+    background: #dee0e6;
+    border: 5px solid #cdd0e6;
+    color: #8f9fc2;
+}
+
+.show-current-week:hover a {
+    color: #8f9fc2;
+}
+
+/* Button to display all tasks. */
+.show-all {
+    display: flex;
+    margin: 10px;
+    border: 5px solid #b8bee4;
+    border-radius: 10px;
+    padding: 3px 5px;
+    align-items: center;
+    justify-content: center;
+    background: #d1d4e2;
+    width: 120px;
+}
+
+.show-all a {
+    text-decoration: none;
+    color: #687fb1;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.show-all:hover {
+    background: #dee0e6;
+    border: 5px solid #cdd0e6;
+}
+
+.show-all:hover a {
+    color: #8f9fc2;
+}
+
+/* Line */
+.line {
+    display: block;
+    align-items: center;
+    background-color: #91b7c0;
+    width: 95%;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Button to add a new task. */
+.add-button {
+    display: flex;
+    margin-top: 20px;
+    border: 1px solid #b1c4a2;
+    border-radius: 10px;
+    padding: 3px 5px;
+    align-items: center;
+    background: #d1e0c5;
+    width: fit-content;
+}
+
+.add-button a {
+    text-decoration: none;
+    color: #92aa7f;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.add-button:hover {
+    background: #dde6d6;
+    border: 1px solid #cbd8c2;
+    color: #b2c5a3;
+}
+
+.add-button:hover a{
+    color: #a1bb8d;
+}
+
+/* For index.jsp: Text saying to select an option. */
+.select {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 20px;
+    color: #83bbbb;
+    text-align: center;
+}
+
+/* A week spread, from Sunday to Saturday. */
+.week {
+    display: flex;
+    padding: 20px;
+}
+
+/* A weekday column. */
+.weekday {
+    margin: 5px;
+    padding: 10px;
+    flex: 1 1 0px;
+    width: 160px;
+}
+
+/* Name of the day of the week. */
+.weekday-heading {
+    width: 100%;
+    background:#D2E9E9;
+    box-shadow: 5px 5px #aac7c7;
+}
+
+.weekday-heading p {
+    text-align: center;
+    color: #387b8b;
+    font-size: 18px;
+}
+
+/* Container for the tasks. */
+.container {
+    margin-top: 10px;
+}
+
+/* A task box. */
+.box {
+    border: 1px solid #D2E9E9;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    overflow-wrap: break-word;
+    background: #e5edf0;
+}
+
+.box h3 {
+    color: #3c434e;
+}
+
+.small-text {
+    font-size: 11px;
+    color:  #3c434e;
+}
+
+.desc {
+    font-size: 13px;
+    color: #3c434e;
+}
+
+/* Delete/Edit buttons. */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Delete task button. */
+.delete-button {
+    border: 1px solid #e7b1b1;
+    border-radius: 10px;
+    width: 20px;
+    text-align: center;
+    padding: 3px;
+    align-items: center;
+    background: #ebc9c9;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.delete-button a {
+    text-decoration: none;
+    color: rgb(216, 121, 121);
+    font-size: 15px;
+}
+
+.delete-button:hover{
+    background: #ebd9d9;
+    border: 1px solid #ebc5c5;
+}
+
+/* Edit task button. */
+.edit-button {
+    border: 1px solid #e9d9a7;
+    border-radius: 10px;
+    width: 20px;
+    text-align: center;
+    padding: 3px;
+    align-items: center;
+    background: #e9e1c8;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.edit-button a {
+    text-decoration: none;
+    color: #c9b24d;
+    font-size: 15px;
+}
+
+.edit-button:hover{
+    background: #f0ebdc;
+    border: 1px solid #e6d8ab;
+}

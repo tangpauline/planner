@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+	min-height: 100vh;
+	background:#F8F6F4;
+    background-size:cover;
+    width: 100%;
+    color: #3c434e;
+    padding: 0;
+    margin: 0;
+}
+
+/* Home icon. */
+nav {
+    position: fixed;
+    width: 100%;
+}
+
+.home {
+    width: 100%;
+    display: flex;
+    justify-content:end;
+    align-items: flex-end;
+}
+
+.home a {
+    text-decoration: none;
+    font-size: 30px;
+    padding-right: 10px;
+    color: #83bbbb;
+}
+
+/* Main section below nav. */
+#content {
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100vh;
+    padding: 0;
+    margin: 0;
+}
+
+/* Form is presented on a bootstrap card. */
+.card {
+    background: #e5edf0;
+    border: 4px solid #aac7c7;
+    border-radius: 10px;
+    width: 60%;
+}
+
+/* Title of the form. */
+h2 {
+    text-align: center;
+}
+
+/* Back/Save buttons. */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Back button. */
+#back-btn {
+    margin: 10px 15px;
+    background: #afb5c0;
+    border: none;
+    color: #56688b;
+}
+
+#back-btn:hover {
+    background: #c5c9d1;
+}
+
+/* Save button. */
+#sub-btn {
+    margin: 10px 15px;
+    color: #4c7232;
+    background: #8ec46f;
+    border: none;
+}
+
+#sub-btn:hover {
+    background: #a6c992;
+}
