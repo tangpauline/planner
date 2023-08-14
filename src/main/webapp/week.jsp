@@ -62,10 +62,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -87,10 +87,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -110,10 +110,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -133,10 +133,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -156,10 +156,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -179,10 +179,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -202,10 +202,10 @@
                                 <p class="desc"><c:out value="${task.description}"/></p>
                                 <div class="buttons">
                                     <div class="delete-button">
-                                        <a href="delete?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        <a href="delete?id=<c:out value='${task.id}'/>" method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="edit-button">
-                                        <a href="edit-form?id=<c:out value='${task.id}'/>&weekday=<c:out value='${task.weekday}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="edit-form?id=<c:out value='${task.id}'/>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>

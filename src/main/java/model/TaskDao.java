@@ -16,23 +16,22 @@ public class TaskDao implements Dao {
 
     public TaskDao() {}
 
-    /* Add new task into appropriate weekday table. */
+    /* Add new task into database table. */
     @Override
     public void addTaskToWeekday(Task task) throws SQLException {
-        String weekday = task.getDayOfWeek();
         String add_query =
-                "INSERT INTO " +
-                        weekday +
-                        " (task_name, task_description, due_date, created_at, is_done, task_status) VALUES " +
-                        " (?, ?, ?, ?, ?, ?);";
+                "INSERT INTO tasks" +
+                        " (task_name, task_description, weekday, due_date, created_at, is_done, task_status) VALUES " +
+                        " (?, ?, ?, ?, ?, ?, ?);";
 
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(add_query)) {
             statement.setString(1, task.getName());
             statement.setString(2, task.getDescription());
-            statement.setDate(3, Utils.getSqlDate(task.getDueDate()));
-            statement.setDate(4, Utils.getSqlDate(task.getCreatedAt()));
-            statement.setBoolean(5, task.getIsDone());
-            statement.setString(6, task.getStatus());
+            statement.setString(3, task.getWeekday());
+            statement.setDate(4, Utils.getSqlDate(task.getDueDate()));
+            statement.setDate(5, Utils.getSqlDate(task.getCreatedAt()));
+            statement.setBoolean(6, task.getIsDone());
+            statement.setString(7, task.getStatus());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -45,9 +44,10 @@ public class TaskDao implements Dao {
     public List<Task> listAllTasksFromWeekday(String weekday) throws SQLException {
         List<Task> tasks = new ArrayList<>();
         String select_query =
-                "select * from " +
+                "select * from tasks " +
+                        "where weekday = '" +
                         weekday +
-                        " order by due_date ASC;";
+                        "' order by due_date ASC;";
 
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(select_query)) {
             ResultSet res = statement.executeQuery();
@@ -90,9 +90,10 @@ public class TaskDao implements Dao {
         String saturdayString = Utils.getSqlDate(saturday).toString();
 
         String select_query =
-                "select * from " +
+                "select * from tasks " +
+                        "where weekday = '" +
                         weekday +
-                        " where due_date between '" +
+                        "' and due_date between '" +
                         sundayString +
                         "' and '" +
                         saturdayString +
@@ -126,13 +127,11 @@ public class TaskDao implements Dao {
         return tasks;
     }
 
-    /* Given the id and weekday, delete the task from the appropriate weekday table. Returns successful or not. */
+    /* Given the id, delete the task. */
     @Override
-    public void deleteTask(String weekday, long id) throws SQLException {
+    public void deleteTask(long id) throws SQLException {
         String delete_query =
-                "delete from " +
-                        weekday +
-                        " where id = ?";
+                "delete from tasks where id = ?";
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(delete_query)) {
             statement.setLong(1, id);
             statement.executeUpdate();
@@ -141,21 +140,21 @@ public class TaskDao implements Dao {
         }
     }
 
-    /* Update the task in the database. Return if successful. */
+    /* Update the task in the database. */
     @Override
     public void editTask(Task task) throws SQLException {
         String weekday = task.getWeekday();
         String update_query =
-                "update " +
-                        weekday +
-                        " set task_name = ?, task_description = ?, due_date = ?, is_done = ?, task_status = ? where id = ?;";
+                "update tasks" +
+                        " set task_name = ?, task_description = ?, weekday = ?, due_date = ?, is_done = ?, task_status = ? where id = ?;";
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(update_query)) {
             statement.setString(1, task.getName());
             statement.setString(2, task.getDescription());
-            statement.setDate(3, Utils.getSqlDate(task.getDueDate()));
-            statement.setBoolean(4, task.getIsDone());
-            statement.setString(5, task.getStatus());
-            statement.setLong(6, task.getId());
+            statement.setString(3, task.getWeekday());
+            statement.setDate(4, Utils.getSqlDate(task.getDueDate()));
+            statement.setBoolean(5, task.getIsDone());
+            statement.setString(6, task.getStatus());
+            statement.setLong(7, task.getId());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -163,13 +162,12 @@ public class TaskDao implements Dao {
         }
     }
 
-    /* Select a particular task, given the weekday it belongs to and its id. */
+    /* Select a particular task, given its id. */
     @Override
-    public Task getTask(String weekday, long TaskId) throws SQLException {
+    public Task getTask(long TaskId) throws SQLException {
         Task task = null;
         String get_query =
-                "select id, task_name, task_description, due_date, created_at, is_done, task_status from " +
-                    weekday +
+                "select id, task_name, task_description, weekday, due_date, created_at, is_done, task_status from tasks" +
                     " where id =?;";
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(get_query)) {
             statement.setLong(1, TaskId);

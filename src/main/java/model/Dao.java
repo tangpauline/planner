@@ -7,11 +7,11 @@ import java.util.List;
 public interface Dao {
     void addTaskToWeekday(Task task) throws SQLException;
 
-    void deleteTask(String weekday, long id) throws SQLException;
+    void deleteTask(long id) throws SQLException;
 
     void editTask(Task task) throws SQLException;
 
-    Task getTask(String weekday, long id) throws SQLException;
+    Task getTask(long id) throws SQLException;
 
     List<Task> listAllTasksFromWeekday(String weekday) throws SQLException;
 

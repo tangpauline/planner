@@ -158,9 +158,8 @@ public class TaskController extends HttpServlet {
     /* Remove the appropriate task from the sql database. */
     private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         long id = Long.parseLong(request.getParameter("id"));
-        String weekday = request.getParameter("weekday");
 
-        taskDao.deleteTask(weekday, id);
+        taskDao.deleteTask(id);
 
         response.sendRedirect("show");
     }
@@ -202,9 +201,8 @@ public class TaskController extends HttpServlet {
     private void editForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         long id = Long.parseLong(request.getParameter("id"));
-        String weekday = request.getParameter("weekday");
 
-        Task task = taskDao.getTask(weekday, id);
+        Task task = taskDao.getTask(id);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("new-task.jsp");
         request.setAttribute("task", task);
