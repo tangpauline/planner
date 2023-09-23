@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import jakarta.servlet.http.HttpSession;
-import model.Dao;
 import model.Task;
 import model.TaskDao;
 import model.UserDao;
@@ -24,7 +23,7 @@ import java.util.List;
 /* Handles communication between the server and appropriate responses from the backend.*/
 @WebServlet("/")
 public class TaskController extends HttpServlet {
-    private Dao taskDao;
+    private TaskDao taskDao;
     private UserDao userDao;
 
     /* Initialize servlet. */
@@ -144,7 +143,7 @@ public class TaskController extends HttpServlet {
             List<Task> listTasksSaturday = taskDao.listAllTasksFromWeekday("saturday", userTable);
             request.setAttribute("listTasksSaturday", listTasksSaturday);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("week.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
             dispatcher.forward(request, response);
         }
     }
@@ -179,7 +178,7 @@ public class TaskController extends HttpServlet {
             List<Task> listTasksSaturday = taskDao.listAllTasksFromWeekdayCurrWeek("saturday", userTable);
             request.setAttribute("listTasksSaturday", listTasksSaturday);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("week.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
             dispatcher.forward(request, response);
         }
     }
@@ -214,7 +213,7 @@ public class TaskController extends HttpServlet {
             List<Task> listTasksSaturday = taskDao.listAllUpcomingTasksFromWeekday("saturday", userTable);
             request.setAttribute("listTasksSaturday", listTasksSaturday);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("week.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
             dispatcher.forward(request, response);
         }
     }

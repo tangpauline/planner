@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* CRUD operations for the SQL database tables. */
-public class TaskDao implements Dao {
+public class TaskDao implements TaskDaoInterface {
 
     public TaskDao() {}
 

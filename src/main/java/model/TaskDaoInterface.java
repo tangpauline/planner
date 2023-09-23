@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /* Interface handling CRUD operations for TASKS with the mySQL database. */
-public interface Dao {
+public interface TaskDaoInterface {
     /* Tasks */
     void addTask(Task task, String userTable) throws SQLException;
     void deleteTask(long id, String userTable) throws SQLException;
