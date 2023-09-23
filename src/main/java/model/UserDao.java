@@ -22,7 +22,6 @@ public class UserDao implements UserDaoInterface {
             statement.setString(4, user.getPassword());
 
             statement.executeUpdate();
-            System.out.println("added user in users");
         } catch (SQLException e) {
             System.out.println(e);
         }

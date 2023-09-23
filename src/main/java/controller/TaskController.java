@@ -359,8 +359,6 @@ public class TaskController extends HttpServlet {
             userDao.createUserTasksTable(newUser);
 
             HttpSession session = request.getSession(true);
-            System.out.println("reg session id:");
-            System.out.println(session.getId());
             session.setAttribute("user", newUser);
 
             response.sendRedirect("home");
