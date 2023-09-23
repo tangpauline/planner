@@ -2,10 +2,7 @@ package model;
 
 import utils.Utils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,9 +15,10 @@ public class TaskDao implements Dao {
 
     /* Add new task into database table. */
     @Override
-    public void addTaskToWeekday(Task task) throws SQLException {
+    public void addTask(Task task, String userTable) throws SQLException {
         String add_query =
-                "INSERT INTO tasks" +
+                "INSERT INTO " +
+                        userTable +
                         " (task_name, task_description, weekday, due_date, created_at, is_done, task_status) VALUES " +
                         " (?, ?, ?, ?, ?, ?, ?);";
 
@@ -41,11 +39,12 @@ public class TaskDao implements Dao {
 
     /* Selects all tasks for the given weekday, sorted by closest due date. */
     @Override
-    public List<Task> listAllTasksFromWeekday(String weekday) throws SQLException {
+    public List<Task> listAllTasksFromWeekday(String weekday, String userTable) throws SQLException {
         List<Task> tasks = new ArrayList<>();
         String select_query =
-                "select * from tasks " +
-                        "where weekday = '" +
+                "select * from " +
+                        userTable +
+                        " where weekday = '" +
                         weekday +
                         "' order by due_date ASC;";
 
@@ -79,7 +78,7 @@ public class TaskDao implements Dao {
 
     /* Selects all tasks for the given weekday for the current week only, sorted by closest due date. */
     @Override
-    public List<Task> listAllTasksFromWeekdayCurrWeek(String weekday) throws SQLException {
+    public List<Task> listAllTasksFromWeekdayCurrWeek(String weekday, String userTable) throws SQLException {
         List<Task> tasks = new ArrayList<>();
         LocalDate[] dates = Utils.getDatesCurrWeek();
 
@@ -90,8 +89,9 @@ public class TaskDao implements Dao {
         String saturdayString = Utils.getSqlDate(saturday).toString();
 
         String select_query =
-                "select * from tasks " +
-                        "where weekday = '" +
+                "select * from " +
+                        userTable +
+                        " where weekday = '" +
                         weekday +
                         "' and due_date between '" +
                         sundayString +
@@ -127,11 +127,57 @@ public class TaskDao implements Dao {
         return tasks;
     }
 
+    /* Selects all upcoming tasks for the given weekday, sorted by closest due date. Excludes past dates. */
+    @Override
+    public List<Task> listAllUpcomingTasksFromWeekday(String weekday, String userTable) throws SQLException {
+        List<Task> tasks = new ArrayList<>();
+
+        Date today = Utils.getSqlDate(LocalDate.now());
+
+        String select_query =
+                "select * from " +
+                        userTable +
+                        " where weekday = ? and due_date >= ? order by due_date ASC;";
+
+        try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(select_query)) {
+            statement.setString(1, weekday);
+            statement.setDate(2, today);
+
+            ResultSet res = statement.executeQuery();
+
+            // go through each row in the table and retrieve their values
+            while (res.next()) {
+                String name = res.getString("task_name");
+                String description = res.getString("task_description");
+                LocalDate dueDate = Utils.getLocalDate(res.getDate("due_date"));
+
+                Task newTask = new Task(name, description, dueDate);
+
+                long id = res.getLong("id");
+                newTask.setId(id);
+                boolean isDone = res.getBoolean("is_done");
+                newTask.setIsDone(isDone);
+                LocalDate createdAt = Utils.getLocalDate(res.getDate("created_at"));
+                newTask.setCreatedAt(createdAt);
+                String status = res.getString("task_status");
+                newTask.setStatus(status);
+
+                tasks.add(newTask);
+            }
+        } catch (SQLException e) {
+            System.out.println("upcoming sql error");
+            System.out.println(e);
+        }
+        return tasks;
+    }
+
     /* Given the id, delete the task. */
     @Override
-    public void deleteTask(long id) throws SQLException {
+    public void deleteTask(long id, String userTable) throws SQLException {
         String delete_query =
-                "delete from tasks where id = ?";
+                "delete from " +
+                        userTable +
+                        " where id = ?";
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(delete_query)) {
             statement.setLong(1, id);
             statement.executeUpdate();
@@ -142,10 +188,11 @@ public class TaskDao implements Dao {
 
     /* Update the task in the database. */
     @Override
-    public void editTask(Task task) throws SQLException {
+    public void editTask(Task task, String userTable) throws SQLException {
         String weekday = task.getWeekday();
         String update_query =
-                "update tasks" +
+                "update " +
+                        userTable +
                         " set task_name = ?, task_description = ?, weekday = ?, due_date = ?, is_done = ?, task_status = ? where id = ?;";
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(update_query)) {
             statement.setString(1, task.getName());
@@ -164,11 +211,12 @@ public class TaskDao implements Dao {
 
     /* Select a particular task, given its id. */
     @Override
-    public Task getTask(long TaskId) throws SQLException {
+    public Task getTask(long TaskId, String userTable) throws SQLException {
         Task task = null;
         String get_query =
-                "select id, task_name, task_description, weekday, due_date, created_at, is_done, task_status from tasks" +
-                    " where id =?;";
+                "select id, task_name, task_description, weekday, due_date, created_at, is_done, task_status from " +
+                        userTable +
+                        " where id =?;";
         try (Connection connection = Utils.getConnection(); PreparedStatement statement = connection.prepareStatement(get_query)) {
             statement.setLong(1, TaskId);
 

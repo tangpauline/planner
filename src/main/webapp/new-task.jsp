@@ -24,9 +24,16 @@
     </head>
 
     <body>
+        <!-- Navigation bar. -->
         <nav>
-            <div class="home">
-                <a href="<%=request.getContextPath()%>"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <div class="nav-items">
+                <div class="home">
+                    <a href="<%=request.getContextPath()%>/home" class="home-item"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="logout">
+                    <a href="<%=request.getContextPath()%>/logout">Logout</a>
+                </div>
             </div>
         </nav>
 

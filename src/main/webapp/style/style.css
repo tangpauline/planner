@@ -17,22 +17,39 @@ body {
     margin: 0;
 }
 
-/* Home icon. */
+/* Navigation bar. */
 nav {
     width: 100%;
 }
 
-.home {
-    width: 100%;
+.nav-items {
     display: flex;
-    justify-content:end;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-items a:hover {
+    color: #5f9797;
+}
+
+.home {
+    padding: 3px;
 }
 
 .home a {
     text-decoration: none;
     font-size: 30px;
-    padding-right: 10px;
+    padding-left: 5px;
+    color: #83bbbb;
+}
+
+.logout {
+    padding: 5px;
+}
+
+.logout a {
+    text-decoration: none;
+    padding-right: 5px;
     color: #83bbbb;
 }
 
@@ -50,75 +67,17 @@ nav {
     text-align: center;
     text-transform: uppercase;
     font-family: 'Bakbak One', cursive;
-    font-size: 50px;
-    color: #387b8b;
+    font-size: 40px;
+    color: #73b3b3;
     margin: 0;
 }
 
-/* "Show" button options */
-.top-buttons {
-    display: flex;
-}
-
-/* Button to display tasks for the current week only. */
-.show-current-week {
-    display: flex;
-    margin: 10px;
-    border: 5px solid #b8bee4;
-    border-radius: 10px;
-    padding: 3px 5px;
-    align-items: center;
-    justify-content: center;
-    background: #d1d4e2;
-    width: 120px;
-}
-
-.show-current-week a {
-    text-decoration: none;
-    color: #687fb1;
+#welcome-msg {
     text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.show-current-week:hover {
-    background: #dee0e6;
-    border: 5px solid #cdd0e6;
-    color: #8f9fc2;
-}
-
-.show-current-week:hover a {
-    color: #8f9fc2;
-}
-
-/* Button to display all tasks. */
-.show-all {
-    display: flex;
-    margin: 10px;
-    border: 5px solid #b8bee4;
-    border-radius: 10px;
-    padding: 3px 5px;
-    align-items: center;
-    justify-content: center;
-    background: #d1d4e2;
-    width: 120px;
-}
-
-.show-all a {
-    text-decoration: none;
-    color: #687fb1;
-    font-size: 13px;
-    text-align: center;
-    font-weight: 600;
-}
-
-.show-all:hover {
-    background: #dee0e6;
-    border: 5px solid #cdd0e6;
-}
-
-.show-all:hover a {
-    color: #8f9fc2;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 50px;
+    color: #387b8b;
+    margin: 0;
 }
 
 /* Line */
@@ -162,20 +121,12 @@ nav {
     color: #a1bb8d;
 }
 
-/* For index.jsp: Text saying to select an option. */
-.select {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    margin-top: 20px;
-    color: #83bbbb;
-    text-align: center;
-}
-
 /* A week spread, from Sunday to Saturday. */
 .week {
     display: flex;
+    flex-wrap: wrap;
     padding: 20px;
+    width: 100%;
 }
 
 /* A weekday column. */
@@ -199,8 +150,8 @@ nav {
     font-size: 18px;
 }
 
-/* Container for the tasks. */
-.container {
+/* Weekday task column for the tasks. */
+.weekday-column {
     margin-top: 10px;
 }
 
@@ -218,6 +169,7 @@ nav {
 
 .box h3 {
     color: #3c434e;
+    font-size: 20px;
 }
 
 .small-text {
@@ -238,49 +190,73 @@ nav {
 }
 
 /* Delete task button. */
-.delete-button {
-    border: 1px solid #e7b1b1;
+.task-button {
     border-radius: 10px;
-    width: 20px;
+    width: 30px;
     text-align: center;
     padding: 3px;
     align-items: center;
-    background: #ebc9c9;
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.delete-button a {
+.task-button a {
     text-decoration: none;
-    color: rgb(216, 121, 121);
     font-size: 15px;
 }
 
-.delete-button:hover{
+#delete-button {
+    border: 1px solid #e7b1b1;
+    background: #ebc9c9;
+}
+
+#delete-button a {
+    color:  #ca8989;
+}
+
+#delete-button:hover {
     background: #ebd9d9;
     border: 1px solid #ebc5c5;
 }
 
 /* Edit task button. */
-.edit-button {
+#edit-button {
     border: 1px solid #e9d9a7;
-    border-radius: 10px;
-    width: 20px;
-    text-align: center;
-    padding: 3px;
-    align-items: center;
     background: #e9e1c8;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
-.edit-button a {
-    text-decoration: none;
+#edit-button a {
     color: #c9b24d;
-    font-size: 15px;
 }
 
-.edit-button:hover{
+#edit-button:hover{
     background: #f0ebdc;
     border: 1px solid #e6d8ab;
+}
+
+/* Task display options */
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#display-options-div {
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    color: #387b8b;
+    text-align: 10px;
+    font-size: 22px;
+}
+
+#display-sub-btn-div {
+    margin: 0 10px;
+}
+
+#display-sub-btn {
+    background: #687fb1;
+    border-color: #687fb1;
 }

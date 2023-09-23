@@ -1,5 +1,7 @@
 package utils;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -59,5 +61,16 @@ public class Utils {
         dates[1] = date;
 
         return dates;
+    }
+
+    /* Given a string PASSWORD, encrypt the passport using BCrypt.*/
+    public static String generatePassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    /* Given a string PASSWORD, and a string ENCRYPTED, check to see if the decrypted password
+       matches PASSWORD. */
+    public static boolean checkPassword(String password, String encrypted) {
+        return BCrypt.checkpw(password, encrypted);
     }
 }

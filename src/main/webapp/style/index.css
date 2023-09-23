@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+	min-height: 100vh;
+	background:#F8F6F4;
+    background-size:cover;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation bar. */
+nav {
+    width: 100%;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-log-reg {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-items a {
+    padding: 15px;
+    color: #83bbbb;
+}
+
+.home a {
+    text-decoration: none;
+    font-size: 30px;
+    padding-right: 10px;
+    color: #83bbbb;
+}
+
+/* Rest of content below home icon. */
+.view {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+/* Title of the page */
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Bakbak One', cursive;
+    font-size: 50px;
+    color: #387b8b;
+    margin: 0;
+    line-height: 60px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 115px);
+}
+
+.body p {
+    font-size: 20px;
+    text-align: center;
+    color: #387b8b;
+}
+
+/* "Show" button options */
+.login-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form {
+    border: 2px solid #387b8b;
+    border-radius: 10px;
+    padding: 30px;
+    min-width: 450px;
+}
+
+form h2 {
+    color: #387b8b;
+}
+
+.form-element {
+    margin: 5px;
+    color: #333333;
+}
+
+.buttons {
+    display: flex;
+    margin: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#reg-button {
+    background: #d1d4e2;
+    border: 2px solid #b8bee4;
+    border-radius: 10px;
+    color: #687fb1;
+}
+
+/******************************/
+
+#error-msg {
+    color: red;
+    font-size: 12px;
+}

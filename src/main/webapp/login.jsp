@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="nav-log-reg">
-                    <a href="<%=request.getContextPath()%>/login-page">Login</a>
+                    <a href="<%=request.getContextPath()%>/login">Login</a>
                     <a href="<%=request.getContextPath()%>">Register</a>
                 </div>
             </div>
@@ -45,24 +45,8 @@
                 <!-- Login/Register -->
                 <p>Log in to an existing account or register one now to begin!</p>
 
-                <form action="register" method="post">
-                    <h2>Register now</h2>
-
-                    <!-- First name -->
-                    <div id="form-first-name" class="form-element">
-                        <label>First name</label>
-                        <input type="text" class="form-control" name="firstName" required="required" minlength="1" value="${firstName}">
-                    </div>
-
-                    <br>
-
-                    <!-- Last name -->
-                    <div id="form-last-name" class="form-element">
-                        <label>Last name</label>
-                        <input type="text" class="form-control" name="lastName" required="required" minlength="1" value="${lastName}">
-                    </div>
-
-                    <br>
+                <form action="login" method="post">
+                    <h2>Log in</h2>
 
                     <!-- Username -->
                     <div id="form-username" class="form-element">
@@ -72,7 +56,7 @@
 
                     <br>
 
-                    <!-- Password -->
+                    <!-- Passwordname -->
                     <div id="form-password" class="form-element">
                         <label>Password</label>
                         <input type="password" class="form-control" name="password" required="required" minlength="8">
@@ -81,11 +65,11 @@
                     <br>
 
                     <div class="buttons">
-                        <button id="reg-button" type="submit" class="btn btn-success">Register</button>
-                        <a href="<%=request.getContextPath()%>/login-page">Login to an existing account</a>
+                        <button id="login-button" type="submit" class="btn btn-success">Log in</button>
                     </div>
 
                     <p id="error-msg"><c:out value="${error_message}"/></p>
+
                 </form>
             </div>
         </div>
