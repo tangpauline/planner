@@ -41,7 +41,7 @@ Each user has its own table, created upon registration, containing the following
 
 id | task_name | task_description | weekday | due_date | created_at | is_done | task_status |
 --- | --- | --- | --- | --- |--- |--- |--- |
-1 | work on cs101 hw2 | hw party @soda 304 5:30pm | thursday |2023-08-03 00:00:00.000000 | 2023-08-03 00:00:00.000000 | 0 | in progress |
+1 | walk dog | meet up with Coco at the dog park @4:30pm instead | saturday | 2023-09-23 00:00:00.000000 | 2023-09-23 00:00:00.000000 | 0 | created |
 
 
 ### Demo screenshots:
