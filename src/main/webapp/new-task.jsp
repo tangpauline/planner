@@ -70,7 +70,7 @@
                     <!-- Description of task -->
                     <fieldset class="form-group">
                         <label>Description</label>
-                        <textarea value="<c:out value='${task.description}'/>" class="form-control" name="description" minlength="5" rows="4" cols="50"></textarea>
+                        <textarea class="form-control" name="description" minlength="5" rows="4" cols="50"><c:out value='${task.description}'/></textarea>
                     </fieldset>
 
                     <!-- Set status of task -->
