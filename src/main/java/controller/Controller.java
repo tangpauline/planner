@@ -22,7 +22,7 @@ import java.util.List;
 
 /* Handles communication between the server and appropriate responses from the backend.*/
 @WebServlet("/")
-public class TaskController extends HttpServlet {
+public class Controller extends HttpServlet {
     private TaskDao taskDao;
     private UserDao userDao;
 
